@@ -1,0 +1,21 @@
+import graphviz
+
+with open('edges.txt', 'r') as f:
+    graph = graphviz.Graph()
+    A = []
+    while True:
+        q = f.readline()
+        if not q:
+            break
+        Q1 = q.split()
+        if len(Q1) == 2:
+            graph.edge(Q1[0], Q1[1])
+            A.append(Q1)
+        elif len(Q1) == 1:
+            graph.node(Q1[0])
+            A.append(Q1)
+        else:
+            print("error")
+            break
+print(A)
+graph.view()
